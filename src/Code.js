@@ -61,6 +61,18 @@ var ROWS = {
   annualizedROI: 37,
 };
 
+var ANALYZE_BUTTON_URL =
+  "https://raw.githubusercontent.com/mehdidotesk73/sheets-rental-finance/main/src/assets/square-play.png";
+
+/**
+ * Programmatically inserts an image button and links it to analyzeRental.
+ * @param {GoogleAppsScript.Spreadsheet.Sheet} sheet
+ */
+function insertAnalyzeButton(sheet) {
+  var button = sheet.insertImage(ANALYZE_BUTTON_URL, 3, 1, 10, 10);
+  button.assignScript("analyzeRental");
+}
+
 /**
  * Creates a NEW sheet and writes the Rental Assessment input/output layout.
  * Run via Finance Toolbox > New Rental Assessment.
@@ -135,14 +147,12 @@ function setupRentalSheet() {
   sheet.setColumnWidth(A, 280);
   sheet.setColumnWidth(B, 200);
 
+  insertAnalyzeButton(sheet);
+
   SpreadsheetApp.getUi().alert(
     "Setup complete!\n\n" +
-      "To add an Analyze button:\n" +
-      "1. Insert > Drawing\n" +
-      '2. Draw a shape and type "Analyze"\n' +
-      "3. Save & close\n" +
-      "4. Click the ⋮ menu on the drawing > Assign script > type: analyzeRental\n\n" +
-      "Or use Finance Toolbox > Analyze Rental from the menu anytime.",
+      "A play-button image was added in column C and linked to analyzeRental.\n\n" +
+      "You can also use Finance Toolbox > Analyze Rental from the menu anytime.",
   );
 }
 
