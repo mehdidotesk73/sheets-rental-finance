@@ -1,0 +1,14 @@
+{
+  "timeZone": "America/Denver",
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "dependencies": {
+    "libraries": [
+      {
+        "userSymbol": "FinanceToolbox",
+        "libraryId": "1bBgH-w3ioazhqbagTmIDZhtEZ7nGz8l4zyvGVC6g1fTlbo53WrEMOCQF",
+        "version": "17"
+      }
+    ]
+  }
+}
