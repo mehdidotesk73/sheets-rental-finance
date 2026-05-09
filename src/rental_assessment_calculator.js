@@ -68,7 +68,10 @@ function calculateRentalAssessment(inputs) {
     ? purchasePrice * loanToValueRatio
     : null;
   var cashAtClose = has(purchasePrice, loanPrincipal)
-    ? purchasePrice - loanPrincipal - (downPaymentAssistance || 0) + (closingCosts || 0)
+    ? purchasePrice -
+      loanPrincipal -
+      (downPaymentAssistance || 0) +
+      (closingCosts || 0)
     : null;
   var monthlyInterestRate = has(annualInterestRate)
     ? annualInterestRate / 12
